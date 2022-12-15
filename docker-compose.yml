@@ -11,7 +11,7 @@ services:
        MYSQL_PASSWORD: 'django'
        MYSQL_ROOT_PASSWORD: 'root'
     volumes:
-      - .setup.sql:/docker-entrypoint-initbd.d/setup.sql
+      - ./docker/mysql/data:/var/lib/mysql
 
   web:
     build: .
@@ -24,3 +24,6 @@ services:
       - db
     links:
       - db
+    environment:
+      PYTHONUNBUFFERED: 1
+
