@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="cards-list">
-            <h1>Learning Products</h1>
-            <div class="card" style="width: 18rem;">
-                {% for product in products %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.title }}</h5>
-                    <p class="card-text">{{ product.description }}</p>
-                    <a href="{% url 'products_details' id=product.id %}" class="card-link">Details</a>
+    <div class="container">
+        <div class="row">
+            <div class="cards-list">
+                <h1>Learning Products</h1>
+                <div class="card-list">
+                    {% for product in products %}
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.title }}</h5>
+                                <p class="card-text">{{ product.description }}</p>
+                                <a href="{% url 'products_details' id=product.id %}" class="card-link">Details</a>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
-</div>
-
 {% endblock %}

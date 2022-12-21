@@ -7,9 +7,16 @@ from django.db.models import Q
 
 def home(request):
     menu_items = MenuItem.objects.all()
-    products = Product.objects.filter(Q(display_on_main_page=True) | Q(approved=True))
+    products = Product.objects.filter(Q(display_on_main_page=True) | Q(approved=True)).order_by("-id")
     return render(request, 'main/index.html',
                   {
                       "menu_items": menu_items,
                       "products": products
                   })
+
+
+def sign_up(request):
+    if request.method == 'POST':
+        pass
+    else:
+        return render(request, 'main/sign-up.html', {})

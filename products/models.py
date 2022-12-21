@@ -9,7 +9,15 @@ class Product(models.Model):
     approved_by = models.ForeignKey(User, related_name="approved_by", null=True, on_delete=models.SET_NULL)
     approved = models.BooleanField(default=False)
     display_on_main_page = models.BooleanField(default=False)
+    # category = models.ManyToManyField(default=False)
 
     def __str__(self):
         return self.title
 
+
+class Category(models.Model):
+    title = models.CharField(max_length=255)
+    # products = models.ManyToManyField(Product)
+
+    def __str__(self):
+        return self.title
