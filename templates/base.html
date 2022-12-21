@@ -24,11 +24,20 @@
                     {% if menu_item.url == '/products/add' and not request.user.is_authenticated %}
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ menu_item.url }}">{{ menu_item.name }}</a>
+                            <a class="nav-link active" aria-current="page"
+                               href="{{ menu_item.url }}">{{ menu_item.name }}</a>
                         </li>
                     {% endif %}
                 {% endfor %}
             </ul>
+        </div>
+        <div class="sign">
+            {% if request.user.is_authenticated %}
+                <h3 class="user">{{ request.user.first_name }} {{ request.user.last_name }}</h3>
+            {% else %}
+                <a type="button" class="btn btn-primary" href="{% url 'sign-up' %}">Sign Up</a>
+                <a type="button" class="btn btn-primary" href="{% url 'sign-in' %}">Sign In</a>
+            {% endif %}
         </div>
     </div>
 </nav>

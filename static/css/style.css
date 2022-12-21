@@ -1,11 +1,15 @@
 
-h1 {
-    color: chocolate;
-}
-
 .navbar-brand.logo {
     color: #79aec8;
     font-size: 44px;
+}
+
+nav .sign {
+    float: right;
+}
+
+nav .user {
+    color: white;
 }
 
 .nav-item {
