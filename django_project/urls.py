@@ -23,4 +23,4 @@ urlpatterns = [
     path('', include('main.urls')),
     path('products', include('products.urls')),
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

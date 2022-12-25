@@ -4,7 +4,7 @@ from .models import MenuItem
 from products.models import Product
 from django.db.models import Q
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 def home(request):
@@ -45,3 +45,9 @@ def sign_in(request):
         return redirect('/')
     else:
         return render(request, 'main/sign-in.html')
+
+
+def logout_view(request):
+    if request.user.is_authenticated:
+        logout(request)
+    return redirect('/')
